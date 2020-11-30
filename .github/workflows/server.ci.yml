@@ -26,10 +26,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    - name: Setup Maven
-      uses: stCarolas/setup-maven@v4
+    - name: Build and Test	
+      uses: qcastel/github-actions-maven/actions/maven@master
       with:
-       maven-version: ${{ matrix.maven-version }}       
-    - name: Run maven test
-      working-directory: ./server
-      run: mvn test
+        maven-args: "clean install"
